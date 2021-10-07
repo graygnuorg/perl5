@@ -199,7 +199,11 @@ compiler" hack in many places:
         char message[1];
     };
 
-so it's unclear what we gain from this.
+Strictly it B<is> undefined behaviour accessing beyond C<message[0]>, but this
+has been a commonly used hack since K&R times, and using it hasn't been a
+practical issue anywhere (in the perl source or any other common C code).
+Hence it's unclear what we would gain from actively changing to the C99
+approach.
 
 =item *
 
@@ -233,9 +237,12 @@ Use C<PERL_INT_FAST8_T> etc as defined in F<handy.h>
 
 C99 format strings in C<< <inttypes> >>
 
-The VMS toolchain only added support for C<PRIdN> etc very recently, meaning
-that there are live supported installions without this, or formats such as
-C<%zu>
+C<snprintf> in the VMS libc only added support for C<PRIdN> etc very recently,
+meaning that there are live supported installations without this, or formats
+such as C<%zu>.
+
+(perl's C<sv_catpvf> etc use parser code code in C<sv.c>, which supports the
+C<z> modifier, along with perl-specific formats such as C<SVf>.)
 
 =back
 
