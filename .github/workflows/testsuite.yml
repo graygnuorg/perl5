@@ -45,7 +45,7 @@ jobs:
           wget https://ftp.gnu.org.ua/gnu/gdbm/gdbm-1.20.tar.gz
           tar xfz gdbm-1.20.tar.gz
           cd gdbm-1.20
-          ./configure
+          ./configure --without-readline --disable-nls
           make
           make install
       - name: Configure
