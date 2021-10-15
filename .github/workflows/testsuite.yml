@@ -18,7 +18,8 @@ on:
 env:
   PERL_SKIP_TTY_TEST: 1
   CONTINUOUS_INTEGRATION: 1
-
+  LSAN_OPTIONS: "verbosity=1:log_threads=1"
+  
 jobs:
 
   #     _    ____    _    _   _
