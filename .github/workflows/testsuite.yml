@@ -40,11 +40,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Install gdbm 1.21
+      - name: Install gdbm 1.20
         run: |
-          wget https://ftp.gnu.org.ua/gnu/gdbm/gdbm-1.21.tar.gz
-          tar xfz gdbm-1.21.tar.gz
-          cd gdbm-1.21
+          wget https://ftp.gnu.org.ua/gnu/gdbm/gdbm-1.20.tar.gz
+          tar xfz gdbm-1.20.tar.gz
+          cd gdbm-1.20
           ./configure
           make
           make install
